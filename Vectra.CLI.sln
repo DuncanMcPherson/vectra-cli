@@ -2,6 +2,16 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vectra.CLI", "Vectra.CLI\Vectra.CLI.csproj", "{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Code", "Test Code", "{5E014D2A-4508-429A-9E94-0DE391657954}"
+	ProjectSection(SolutionItems) = preProject
+		Test Code\Program.vec = Test Code\Program.vec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{132A31A7-00B2-4006-B5C9-F79B40D385E9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
