@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.0.0...v1.0.1) (2025-06-23)
+
+
+### Bug Fixes
+
+* include the exe in the release ([785ce41](https://github.com/DuncanMcPherson/vectra-cli/commit/785ce41547e8207f81bff0928159c16178642274))
+
 # 1.0.0 (2025-06-23)
 
 
