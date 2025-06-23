@@ -1,0 +1,7 @@
+space System;
+
+class Program {
+    number main() {
+        return 42;
+    }
+}
