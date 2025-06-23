@@ -31,7 +31,13 @@
       {
         "successComment": "Release v${nextRelease.version} deployed! May the Force be with us.\n\n${nextRelease.notes}",
         "failTitle": "Release failed for v${lastRelease.version}",
-        "failComment": "⚠️ The automated release for v${lastRelease.version} has failed at the `${error.command}` step.\n\n> **Error Message**: ${error.message}\n\nPlease investigate the logs and retrigger the release once fixed."
+        "failComment": "⚠️ The automated release for v${lastRelease.version} has failed at the `${error.command}` step.\n\n> **Error Message**: ${error.message}\n\nPlease investigate the logs and retrigger the release once fixed.",
+        "asstes": [
+          {
+            "path": "out/vecc.exe",
+            "label": "Vectra CLI windows"
+          }
+        ]
       }
     ]
   ]
