@@ -20,6 +20,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github/workflows", ".githu
 		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vectra.CLI.Tests", "Vectra.CLI.Tests\Vectra.CLI.Tests.csproj", "{27C3C378-F741-41B2-931D-49A8D3AE4B60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F} = {AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +35,9 @@ Global
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

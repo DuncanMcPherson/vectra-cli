@@ -81,12 +81,12 @@ jobs:
           dotnet-version: 9.x
       - name: Add Private NuGet source
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.PACKAGES}}
         run: |
           dotnet nuget add source https://nuget.pkg.github.com/DuncanMcPherson/index.json \
             --name "github" \
             --username "${{ github.repository_owner }}" \
-            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --password "${{ secrets.PACKAGES }}" \
             --store-password-in-clear-text
       - name: Restore and build
         run: |
@@ -110,12 +110,12 @@ jobs:
           key: ${{ runner.os }}-nuget-${{ needs.hash.outputs.hash }}
       - name: Add Private NuGet source
         env:
-          GITHUB_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          GITHUB_TOKEN: ${{secrets.PACKAGES}}
         run: |
           dotnet nuget add source https://nuget.pkg.github.com/DuncanMcPherson/index.json \
             --name "github" \
             --username "${{ github.repository_owner }}" \
-            --password "${{ secrets.GITHUB_TOKEN }}" \
+            --password "${{ secrets.PACKAGES }}" \
             --store-password-in-clear-text
       - name: Restore and Test
         run: |
