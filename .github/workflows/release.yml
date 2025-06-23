@@ -1,0 +1,124 @@
+name: Release CLI
+
+on:
+  push:
+    branches:
+      - master
+    tags-ignore:
+      - '*'
+
+permissions:
+  contents: write
+  issues: write
+  
+jobs:
+  hash:
+    if: >
+      startsWith(github.ref, 'refs/heads/master') &&
+      !contains(github.event.head_commit.message, '[skip ci]')
+    runs-on: ubuntu-latest
+    name: Generate NuGet cache Hash
+    outputs:
+      hash: ${{steps.set-hash.outputs.hash}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Generate Hash
+        id: set-hash
+        shell: pwsh
+        run: |
+          $projectFiles = @(Get-ChildItem -Recurse -Filter *.csproj)
+          $packageReferences = @()
+
+          echo "Found $($projectFiles.Count) project files."
+          if ($projectFiles.Count -eq 0) {
+            echo "No project files found. Exiting..."
+            exit 1
+          }
+
+          foreach ($file in $projectFiles) {
+            [xml]$xml = Get-Content $file.FullName
+            $refs = @($xml.Project.ItemGroup.PackageReference)
+            echo "Found $($refs.Count) package references in $($file.FullName)."
+            if ($refs.Count -eq 0) {
+              echo "No Package references found in $($file.FullName). Skipping file..."
+              continue
+            }
+            foreach ($ref in $refs) {
+              echo "Processing package reference: $($ref.Include) version $($ref.Version)."
+              if ([string]::IsNullOrWhiteSpace($ref.Include)) {
+                echo "No value provided for include. Skipping..."
+                continue
+              }
+              $line = "$($ref.Include):$($ref.Version)"
+              $packageReferences += $line
+            }
+          }
+
+          echo "Found $($packageReferences.Count) package references."
+          if ($packageReferences.Count -eq 0) {
+            echo "No references found. Exiting..."
+            exit 0
+          }
+
+          $packageReferences = $packageReferences | Sort-Object
+          $joined = [string]::Join("`n", $packageReferences)
+          $hash = [System.BitConverter]::ToString(
+          (New-Object -TypeName System.Security.Cryptography.SHA256Managed).ComputeHash(
+                [System.Text.Encoding]::UTF8.GetBytes($joined)
+            )
+          ) -replace "-", ""
+
+          echo "hash=$hash" >> $env:GITHUB_OUTPUT
+  release:
+    name: Release CLI to GitHub
+    needs: hash
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 18
+      - name: Setup .NET SDK
+        uses: actions/setup-dotnet@v3
+        with: 
+          dotnet-version: 9.x
+      - name: Cache NuGet packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.nuget/packages
+          key: ${{runner.os}}-nuget-${{needs.hash.outputs.hash}}
+      - name: Cache Node.js
+        uses: actions/cache@v3
+        with:
+          path: ./node_modules
+          key: ${{runner.os}}-node
+      - name: Install Semantic Release and plugins
+        run: |
+          npm install --no-save \
+            semantic-release \
+            @semantic-release/commit-analyzer \
+            @semantic-release/release-notes-generator \
+            @semantic-release/changelog \
+            @semantic-release/exec \
+            @semantic-release/git \
+            @semantic-release/github
+      - name: Setup Github app Token
+        id: setup-github-app-token
+        uses: actions/create-github-app-token@v1
+        with:
+          app-id: 1385001
+          private-key: ${{secrets.APP_PRIVATE_KEY}}
+      - name: Set remote with app token
+        run: |
+          git config --global user.name "release-bot[app]"
+          git config --global user.email "release-bot[app]@users.noreply.github.com"
+          git remote set-url origin "https://x-access-token:${{ steps.setup-github-app-token.outputs.token }}@github.com/${{ github.repository }}.git"
+      - name: Run release
+        run: npx semantic-release
+        env:
+          GITHUB_TOKEN: ${{steps.setup-github-app-token.outputs.token}}

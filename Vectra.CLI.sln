@@ -10,6 +10,14 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{132A31A7-00B2-4006-B5C9-F79B40D385E9}"
 	ProjectSection(SolutionItems) = preProject
 		.gitignore = .gitignore
+		.releaserc.json = .releaserc.json
+		prepare-release.sh = prepare-release.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github/workflows", ".github/workflows", "{562EFC01-51E2-4ED8-8163-24D6E1A655F7}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pr.yml = .github\workflows\pr.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
 	EndProjectSection
 EndProject
 Global
