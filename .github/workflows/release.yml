@@ -118,6 +118,15 @@ jobs:
           git config --global user.name "release-bot[app]"
           git config --global user.email "release-bot[app]@users.noreply.github.com"
           git remote set-url origin "https://x-access-token:${{ steps.setup-github-app-token.outputs.token }}@github.com/${{ github.repository }}.git"
+      - name: Add Private NuGet source
+        env:
+          GITHUB_TOKEN: ${{secrets.PACKAGES}}
+        run: |
+          dotnet nuget add source https://nuget.pkg.github.com/DuncanMcPherson/index.json \
+            --name "github" \
+            --username "${{ github.repository_owner }}" \
+            --password "${{ secrets.PACKAGES }}" \
+            --store-password-in-clear-text
       - name: Run release
         run: npx semantic-release
         env:
