@@ -120,7 +120,7 @@ jobs:
       - name: Restore and Test
         run: |
           dotnet restore
-          dotnet test --c Release --logger "trx;LogFileName=TestResults.trx" --collect:"XPlat Code Coverage"
+          dotnet test -c Release --logger "trx;LogFileName=TestResults.trx" --collect:"XPlat Code Coverage"
         continue-on-error: true
       - name: Report Generator
         uses: danielpalme/ReportGenerator-GitHub-Action@5.4.7
