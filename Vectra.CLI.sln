@@ -2,6 +2,29 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vectra.CLI", "Vectra.CLI\Vectra.CLI.csproj", "{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test Code", "Test Code", "{5E014D2A-4508-429A-9E94-0DE391657954}"
+	ProjectSection(SolutionItems) = preProject
+		Test Code\Program.vec = Test Code\Program.vec
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{132A31A7-00B2-4006-B5C9-F79B40D385E9}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		.releaserc.json = .releaserc.json
+		prepare-release.sh = prepare-release.sh
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github/workflows", ".github/workflows", "{562EFC01-51E2-4ED8-8163-24D6E1A655F7}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\pr.yml = .github\workflows\pr.yml
+		.github\workflows\release.yml = .github\workflows\release.yml
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vectra.CLI.Tests", "Vectra.CLI.Tests\Vectra.CLI.Tests.csproj", "{27C3C378-F741-41B2-931D-49A8D3AE4B60}"
+	ProjectSection(ProjectDependencies) = postProject
+		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F} = {AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -12,5 +35,9 @@ Global
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AECD81A0-20BB-4AB3-8DF6-1DB0F92E867F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27C3C378-F741-41B2-931D-49A8D3AE4B60}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
