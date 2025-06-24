@@ -1,3 +1,10 @@
+# [1.2.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.1.0...v1.2.0) (2025-06-24)
+
+
+### Features
+
+* publish self-contained single file executable ([dedde2f](https://github.com/DuncanMcPherson/vectra-cli/commit/dedde2f121813c97bbe3c03cb30a4755fddf06e4))
+
 # [1.1.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.0.2...v1.1.0) (2025-06-24)
 
 
