@@ -1,3 +1,15 @@
+# [1.3.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.2.0...v1.3.0) (2025-06-24)
+
+
+### Bug Fixes
+
+* release process ([808c6a5](https://github.com/DuncanMcPherson/vectra-cli/commit/808c6a5ab622f222c1797ca9d56bf1d17ef45060))
+
+
+### Features
+
+* Add `info` command and auto update check ([97352fb](https://github.com/DuncanMcPherson/vectra-cli/commit/97352fb0e0324ccea344ea34b368c479fadcd028))
+
 # [1.2.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.1.0...v1.2.0) (2025-06-24)
 
 
