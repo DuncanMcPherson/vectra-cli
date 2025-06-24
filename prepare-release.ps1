@@ -53,6 +53,6 @@ foreach ($csproj in $csprojFiles) {
 
 # 2. Build and Publish
 Write-Host "Publishing solution..."
-dotnet publish ./Vectra.CLI/Vectra.CLI.csproj -c Release -o ./out
+dotnet publish ./Vectra.CLI/Vectra.CLI.csproj -c Release -o ./out -r win-x64 --self-contained -p:PublishSingleFile=true
 
 Write-Host "Build and publish complete. Output is in ./out"
