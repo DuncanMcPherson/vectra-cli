@@ -6,3 +6,5 @@ riderModule.iml
 .idea/
 *.user
 *.vbc
+out/
+node_modules/
