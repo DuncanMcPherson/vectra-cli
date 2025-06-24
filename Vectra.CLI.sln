@@ -12,6 +12,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{132A31
 		.gitignore = .gitignore
 		.releaserc.json = .releaserc.json
 		prepare-release.sh = prepare-release.sh
+		prepare-release.ps1 = prepare-release.ps1
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github/workflows", ".github/workflows", "{562EFC01-51E2-4ED8-8163-24D6E1A655F7}"
