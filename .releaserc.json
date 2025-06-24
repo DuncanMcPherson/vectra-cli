@@ -13,7 +13,8 @@
       "@semantic-release/exec",
       {
         "verifyConditionsCmd": "chmod +x prepare-release.sh",
-        "prepareCmd": "./prepare-release.sh ${nextRelease.version}"
+        "prepareCmd": "./prepare-release.sh ${nextRelease.version}",
+        "publishCmd": "ls ./out"
       }
     ],
     [
