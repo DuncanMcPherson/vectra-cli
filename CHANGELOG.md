@@ -1,3 +1,10 @@
+# [1.1.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.0.2...v1.1.0) (2025-06-24)
+
+
+### Features
+
+* add PowerShell release script for cross-platform support ([59ec710](https://github.com/DuncanMcPherson/vectra-cli/commit/59ec710d99dfa5eabe281f526e6e072df8a47cab))
+
 ## [1.0.2](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.0.1...v1.0.2) (2025-06-24)
 
 
