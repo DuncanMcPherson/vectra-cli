@@ -35,6 +35,6 @@ done
 
 # 3. Build and publish
 echo "Publishing solution..."
-dotnet publish ./Vectra.CLI/Vectra.CLI.csproj -c Release -o ./out
+dotnet publish ./Vectra.CLI/Vectra.CLI.csproj -c Release -o ./out -r win-x64 --self-contained -p:PublishSingleFile=true
 
 echo "Build and publish complete. Output is in ./out"
