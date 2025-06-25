@@ -14,8 +14,8 @@
     <ItemGroup>
         <PackageReference Include="NuGet.Versioning" Version="6.14.0" />
         <PackageReference Include="System.CommandLine" Version="2.0.0-beta5.25306.1" />
-        <PackageReference Include="Vectra.Compiler" Version="1.2.1" />
-        <PackageReference Include="Vectra.VM" Version="1.1.0" />
+        <PackageReference Include="Vectra.Compiler" Version="1.3.0" />
+        <PackageReference Include="Vectra.VM" Version="1.1.1" />
     </ItemGroup>
 
 </Project>
