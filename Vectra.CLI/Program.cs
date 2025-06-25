@@ -69,11 +69,37 @@ internal static class Program
             RunUpdateCheckAsync().Wait();
         });
 
+        var astCmd = new Command("ast", "Prints the AST of a Vectra project")
+        {
+            Arguments =
+            {
+                new Argument<FileInfo>("input")
+                {
+                    Description = "The .vec file to compile"
+                }
+            }
+        };
+        astCmd.SetAction(parse =>
+        {
+            var file = parse.GetRequiredValue<FileInfo>("input");
+            ValidateFile(file, ".vec");
+            var module = Compiler.Compiler.GetAST(file.FullName);
+            if (module == null)
+            {
+                Console.Error.WriteLine("Failed to parse AST");
+                return 1;
+            }
+            
+            Console.WriteLine(module.RootSpace);
+            return 0;
+        });
+
         return new RootCommand("Vectra CLI")
         {
             buildCmd,
             runCmd,
-            infoCmd
+            infoCmd,
+            astCmd,
         };
     }
 
