@@ -1,3 +1,10 @@
+# [1.4.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.3.0...v1.4.0) (2025-06-25)
+
+
+### Features
+
+* VEC-1 Add AST command ([c3e7ce1](https://github.com/DuncanMcPherson/vectra-cli/commit/c3e7ce1ce4ab6151d11318434fe0e9cb2c78e910))
+
 # [1.3.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.2.0...v1.3.0) (2025-06-24)
 
 
