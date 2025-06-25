@@ -1,7 +1,9 @@
+using System.Diagnostics.CodeAnalysis;
 using Vectra.Bytecode.Models;
 
 namespace Vectra.CLI;
 
+[ExcludeFromCodeCoverage]
 public class Disassembler
 {
     private const int IndentSize = 4;
