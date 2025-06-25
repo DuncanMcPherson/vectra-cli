@@ -1,3 +1,10 @@
+# [1.5.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.4.0...v1.5.0) (2025-06-25)
+
+
+### Features
+
+* add `disasm` command with disassembly support ([5912b5a](https://github.com/DuncanMcPherson/vectra-cli/commit/5912b5a4e8bb5a00a72a954c88f990416c73bc26))
+
 # [1.4.0](https://github.com/DuncanMcPherson/vectra-cli/compare/v1.3.0...v1.4.0) (2025-06-25)
 
 
