@@ -29,6 +29,7 @@ internal static class Program
         return result;
     }
 
+    [ExcludeFromCodeCoverage]
     private static RootCommand CreateRootCommand(ProgramServices services)
     {
         var buildCmd = new Command("build", "Compiles a Vectra project to .vbc")
@@ -91,7 +92,25 @@ internal static class Program
             }
             
             Console.WriteLine(module.RootSpace);
+            RunUpdateCheckAsync().Wait();
             return 0;
+        });
+
+        var disasmCmd = new Command("disasm", "Disassembles a Vectra project")
+        {
+            new Argument<FileInfo>("input")
+            {
+                Description = "Prints out the disassembly of the given .vbc file"
+            }
+        };
+        disasmCmd.SetAction((parse) =>
+        {
+            var file = parse.GetRequiredValue<FileInfo>("input");
+            ValidateFile(file, ".vbc");
+            var program = VbcLoader.Load(file.FullName);
+            var disassembler = new Disassembler();
+            disassembler.Disassemble(program);
+            RunUpdateCheckAsync().Wait();
         });
 
         return new RootCommand("Vectra CLI")
@@ -100,6 +119,7 @@ internal static class Program
             runCmd,
             infoCmd,
             astCmd,
+            disasmCmd,
         };
     }
 
