@@ -29,6 +29,7 @@ internal static class Program
         return result;
     }
 
+    [ExcludeFromCodeCoverage]
     private static RootCommand CreateRootCommand(ProgramServices services)
     {
         var buildCmd = new Command("build", "Compiles a Vectra project to .vbc")
